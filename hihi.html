@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em có iu anh không?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            background-color: #ffc1cc;
+            color: #333;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px #ff9999;
+        }
+        .meme {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        #yesBtn {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #noBtn {
+            background-color: #ff4040;
+            color: white;
+            position: relative;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            color: #333;
+        }
+        #responseMeme {
+            display: none;
+            width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Em có iu anh không? 🦖</h1>
+    <img src="th (9).jpg" alt="Cute Dino Meme" class="meme">
+    <div class="buttons">
+        <button id="yesBtn">Có</button>
+        <button id="noBtn">Không</button>
+    </div>
+    <div id="message"></div>
+    <img id="responseMeme" src="" alt="">
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const message = document.getElementById('message');
+        const responseMeme = document.getElementById('responseMeme');
+
+        noBtn.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            message.textContent = 'Anh biết em iu anh mà 😘 nếu mà có mệt quá thì về tâm sự với anh nha 😘 ';
+            responseMeme.src = 'th (10).jpg';
+            responseMeme.style.display = 'block';
+            noBtn.style.display = 'none';
+            yesBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
